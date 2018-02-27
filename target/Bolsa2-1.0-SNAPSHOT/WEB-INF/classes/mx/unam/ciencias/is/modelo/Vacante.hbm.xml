@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/02/2018 02:40:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mx.unam.ciencias.is.modelo.Vacante" table="vacante" schema="public">
+        <id name="idVacante" type="int">
+            <column name="id_vacante" />
+            <generator class="assigned"></generator>
+        </id>
+        <many-to-one name="empresa" class="mx.unam.ciencias.is.modelo.Empresa" fetch="select">
+            <column name="fk_empresa" />
+        </many-to-one>
+        <property name="horaInicio" type="date">
+            <column name="hora_inicio" length="13" />
+        </property>
+        <property name="horaFinal" type="date">
+            <column name="hora_final" length="13" />
+        </property>
+        <property name="lugar" type="string">
+            <column name="lugar" length="100" />
+        </property>
+        <property name="puesto" type="string">
+            <column name="puesto" length="50" />
+        </property>
+        <property name="salario" type="java.lang.Integer">
+            <column name="salario" />
+        </property>
+        <property name="actividades" type="string">
+            <column name="actividades" length="150" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="150" />
+        </property>
+        <set name="postulars" table="postular" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_vacante" />
+            </key>
+            <one-to-many class="mx.unam.ciencias.is.modelo.Postular" />
+        </set>
+    </class>
+</hibernate-mapping>

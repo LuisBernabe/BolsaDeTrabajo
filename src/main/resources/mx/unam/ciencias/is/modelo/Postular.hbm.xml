@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/02/2018 02:40:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mx.unam.ciencias.is.modelo.Postular" table="postular" schema="public">
+        <composite-id name="id" class="mx.unam.ciencias.is.modelo.PostularId">
+            <key-property name="fkProfesionista" type="java.lang.Integer">
+                <column name="fk_profesionista" />
+            </key-property>
+            <key-property name="fkVacante" type="java.lang.Integer">
+                <column name="fk_vacante" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vacante" class="mx.unam.ciencias.is.modelo.Vacante" update="false" insert="false" fetch="select">
+            <column name="fk_vacante" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

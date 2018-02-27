@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/02/2018 02:40:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mx.unam.ciencias.is.modelo.FormacionAcademica" table="formacion_academica" schema="public">
+        <composite-id name="id" class="mx.unam.ciencias.is.modelo.FormacionAcademicaId">
+            <key-property name="colegio" type="string">
+                <column name="colegio" length="100" />
+            </key-property>
+            <key-property name="grado" type="int">
+                <column name="grado" />
+            </key-property>
+            <key-property name="inicioPeriodo" type="date">
+                <column name="inicio_periodo" length="13" />
+            </key-property>
+            <key-property name="finPeriodo" type="date">
+                <column name="fin_periodo" length="13" />
+            </key-property>
+        </composite-id>
+        <property name="fkIdProfesionista" type="java.lang.Integer">
+            <column name="fk_id_profesionista" />
+        </property>
+    </class>
+</hibernate-mapping>
